@@ -17,7 +17,7 @@
             class="grid gap-6 items-start p-6 rounded-xl bg-slate-50 grid-cols-[300px_2fr_328px] max-md:grid-cols-[300px_1fr] max-sm:grid-cols-[1fr]"
           >
             <TeacherSelector />
-            <AvailabilityCalendar />
+            <AvailabilityCalendar :isTeacher="false" />
             <TimeSelector />
           </div>
         </div>

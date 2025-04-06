@@ -16,7 +16,7 @@
           <div
             class="grid gap-6 items-start p-6 rounded-xl bg-slate-50 grid-cols-[1fr_328px] max-md:grid-cols-[1fr] max-sm:grid-cols-[1fr]"
           >
-            <AvailabilityCalendar />
+            <AvailabilityCalendar :isTeacher="true" @updateAvailability="handleAvailabilityUpdate" />
             <TimeSelector />
           </div>
         </div>
@@ -43,6 +43,7 @@
 </template>
 
 <script setup lang="ts">
+import { ref } from "vue";
 import DashboardHeader from "./DashboardHeader.vue";
 import UpcomingClass from "./UpcomingClass.vue";
 import PlannedClasses from "./PlannedClasses.vue";
@@ -51,4 +52,11 @@ import AvailabilityCalendar from "../shared/AvailabilityCalendar.vue";
 import TimeSelector from "../shared/TimeSelector.vue";
 import TeachingStats from "./TeachingStats.vue";
 import DashboardFooter from "../shared/DashboardFooter.vue";
+
+// Müsaitlik verilerini API'ya gönderen fonksiyon
+const handleAvailabilityUpdate = (availabilityData: any) => {
+  console.log("Müsaitlik verileri güncellendi:", availabilityData);
+  // Gerçek uygulamada burada API çağrısı yapılacak
+  // örn: await apiService.updateTeacherAvailability(availabilityData);
+};
 </script>
