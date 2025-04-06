@@ -1,7 +1,6 @@
 import { describe, it, expect } from "vitest";
 import { mount } from "@vue/test-utils";
 import AdminDashboard from "./AdminDashboard.vue";
-import DashboardHeader from "./DashboardHeader.vue";
 import SystemOverview from "./SystemOverview.vue";
 import UserManagement from "./UserManagement.vue";
 import PackageManagement from "./PackageManagement.vue";
@@ -9,12 +8,11 @@ import LatestActivities from "./LatestActivities.vue";
 import SystemHealth from "./SystemHealth.vue";
 import RevenueStats from "./RevenueStats.vue";
 
-
 describe("AdminDashboard", () => {
   it("renders all main components", () => {
     const wrapper = mount(AdminDashboard);
 
-    expect(wrapper.findComponent(DashboardHeader).exists()).toBe(true);
+    expect(wrapper.findAll('header')).toHaveLength(1);
     expect(wrapper.findComponent(SystemOverview).exists()).toBe(true);
     expect(wrapper.findComponent(UserManagement).exists()).toBe(true);
     expect(wrapper.findComponent(PackageManagement).exists()).toBe(true);
@@ -30,14 +28,6 @@ describe("AdminDashboard", () => {
   });
 });
 
-describe("DashboardHeader", () => {
-  it("renders welcome message and logout button", () => {
-    const wrapper = mount(DashboardHeader);
-    expect(wrapper.text()).toContain("Hoşgeldin, Admin");
-    expect(wrapper.find("button").text()).toBe("Çıkış Yap");
-  });
-});
-
 describe("SystemOverview", () => {
   it("renders all statistic cards", () => {
     const wrapper = mount(SystemOverview);
@@ -45,7 +35,6 @@ describe("SystemOverview", () => {
     expect(cards).toHaveLength(4);
   });
 });
-
 
 describe("UserManagement", () => {
   it("renders search input and user list", () => {

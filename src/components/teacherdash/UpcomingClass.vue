@@ -37,7 +37,7 @@
             stroke-linejoin="round"
           ></path>
         </svg>
-        <span class="font-medium">15 Mart 2024</span>
+        <span class="font-medium">{{ formattedDate }}</span>
       </div>
 
       <div
@@ -59,7 +59,7 @@
             stroke-linejoin="round"
           ></path>
         </svg>
-        <span class="font-semibold">14:30</span>
+        <span class="font-semibold">{{ lesson.time }}</span>
       </div>
 
       <div class="flex gap-2 items-center text-base text-neutral-800">
@@ -79,16 +79,57 @@
             stroke-linejoin="round"
           ></path>
         </svg>
-        <span class="font-medium">Öğrenci: Can Yılmaz</span>
+        <span class="font-medium">Öğrenci: {{ lesson.student }}</span>
       </div>
     </div>
 
-    <button
-      class="px-5 py-2.5 w-full text-base font-medium bg-violet-700 rounded text-white hover:bg-violet-800 transition-colors"
-    >
-      Derse Başla
-    </button>
+    <JoinLessonButton 
+      :lessonDate="formattedLessonDate" 
+      :lessonTime="lesson.time" 
+      :lessonId="lesson.id.toString()"
+      @joined="handleJoinLesson"
+    />
   </section>
 </template>
 
-<script setup lang="ts"></script>
+<script setup lang="ts">
+import { ref, computed } from 'vue';
+import JoinLessonButton from '../shared/JoinLessonButton.vue';
+
+// Demo amaçlı tek bir ders tanımlıyoruz
+// Gerçek uygulamada API'den gelecektir
+const lesson = ref({
+  id: 1,
+  subject: "Matematik",
+  student: "Can Yılmaz",
+  date: "2024-03-15", // Format: YYYY-MM-DD
+  time: "14:30"
+});
+
+// Tarihini formatla (görüntüleme için)
+const formattedDate = computed(() => {
+  const date = new Date(lesson.value.date);
+  return new Intl.DateTimeFormat('tr-TR', {
+    day: '2-digit',
+    month: 'long',
+    year: 'numeric'
+  }).format(date);
+});
+
+// JoinLessonButton bileşeni için formatlanmış tarih
+const formattedLessonDate = computed(() => {
+  return lesson.value.date;
+});
+
+// Derse katılma işlemini yönet
+const handleJoinLesson = (lessonId: string) => {
+  console.log(`Derse katılınıyor: ${lessonId}`);
+  
+  // Öğretmen derse katıldığında kredinin transferi
+  // gerçek uygulamada API üzerinden yapılacaktır
+  console.log(`${lesson.value.student} ile ders için 1 kredi kazanıldı`);
+  
+  // Simülasyon amaçlı Meet'e yönlendirme
+  // Gerçek uygulamada ayrı bir pencere açılır
+};
+</script>
