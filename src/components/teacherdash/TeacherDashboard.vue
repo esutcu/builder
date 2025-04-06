@@ -47,8 +47,8 @@ import DashboardHeader from "./DashboardHeader.vue";
 import UpcomingClass from "./UpcomingClass.vue";
 import PlannedClasses from "./PlannedClasses.vue";
 import TeachingHours from "./TeachingHours.vue";
-import AvailabilityCalendar from "./AvailabilityCalendar.vue";
-import TimeSelector from "./TimeSelector.vue";
+import AvailabilityCalendar from "../shared/AvailabilityCalendar.vue";
+import TimeSelector from "../shared/TimeSelector.vue";
 import TeachingStats from "./TeachingStats.vue";
-import DashboardFooter from "./DashboardFooter.vue";
+import DashboardFooter from "../shared/DashboardFooter.vue";
 </script>

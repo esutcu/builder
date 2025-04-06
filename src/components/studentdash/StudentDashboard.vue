@@ -49,8 +49,8 @@ import UpcomingClass from "./UpcomingClass.vue";
 import PlannedClasses from "./PlannedClasses.vue";
 import CreditBalance from "./CreditBalance.vue";
 import TeacherSelector from "./TeacherSelector.vue";
-import AvailabilityCalendar from "./AvailabilityCalendar.vue";
-import TimeSelector from "./TimeSelector.vue";
+import AvailabilityCalendar from "../shared/AvailabilityCalendar.vue";
+import TimeSelector from "../shared/TimeSelector.vue";
 import PackagePricing from "./PackagePricing.vue";
-import DashboardFooter from "./DashboardFooter.vue";
+import DashboardFooter from "../shared/DashboardFooter.vue";
 </script>
