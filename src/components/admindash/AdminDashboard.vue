@@ -6,6 +6,7 @@
       <main class="flex relative flex-col gap-4 p-4 flex-[1_0_auto] z-[1] max-md:gap-3.5 max-md:p-3.5 max-sm:gap-3 max-sm:p-3">
         <div class="flex flex-col gap-5 w-full max-sm:w-full">
           <SystemOverview />
+        
           <div class="grid gap-6 grid-cols-[2fr_1fr] max-md:grid-cols-1">
             <UserStats />
             <RevenueStats />
@@ -43,4 +44,5 @@ import PackageManagement from "./PackageManagement.vue";
 import LatestActivities from "./LatestActivities.vue";
 import SystemHealth from "./SystemHealth.vue";
 import DashboardFooter from "../shared/DashboardFooter.vue";
+
 </script>

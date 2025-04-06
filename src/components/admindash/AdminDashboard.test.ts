@@ -9,6 +9,7 @@ import LatestActivities from "./LatestActivities.vue";
 import SystemHealth from "./SystemHealth.vue";
 import RevenueStats from "./RevenueStats.vue";
 
+
 describe("AdminDashboard", () => {
   it("renders all main components", () => {
     const wrapper = mount(AdminDashboard);
@@ -44,6 +45,7 @@ describe("SystemOverview", () => {
     expect(cards).toHaveLength(4);
   });
 });
+
 
 describe("UserManagement", () => {
   it("renders search input and user list", () => {
